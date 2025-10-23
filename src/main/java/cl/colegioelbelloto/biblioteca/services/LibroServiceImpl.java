@@ -22,7 +22,7 @@ public class LibroServiceImpl implements ILibroService{
 
     @Override
     public List<Libro> AllLibros() {
-        return List.of();
+        return libroRepository.findAll();
     }
 
     @Override
@@ -31,7 +31,12 @@ public class LibroServiceImpl implements ILibroService{
     }
 
     @Override
-    public void deleteLibro(Long id) {
+    public void deleteLibro(Long idLibro) {
+        libroRepository.deleteById(idLibro);
+    }
 
+    public Libro findByIdLibro(Long id){
+        libroRepository.findById(id).orElse(null);
+        return null;
     }
 }

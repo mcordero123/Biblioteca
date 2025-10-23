@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioSystem</title>
 </head>
 <body>
-$END$
+<h1>Agregar libro</h1>
+
+<form th:action="@{/libros/guardar}" th:object="${libro}" method="post" id="libroForm">
+
+    <div th:if="${mensaje}">
+        <p th:text="${mensaje}"></p>
+    </div>
+    <input type="hidden" name="id" id="id" th:field="*{idLibro}">
+
+    <label for="isbn">ISBN: </label>
+    <input type="text" id="isbn" name="isbn" placeholder="Ej: +56 9 1234 5678"  th:field="*{isbn}">
+    <br><br>
+    <label for="titulo">TITULO: </label>
+    <input type="text" id="titulo" name="titulo" placeholder="Ingresar titulo" th:field="*{titulo}">
+    <br><br>
+    <label for="autor">AUTOR: </label>
+    <input type="text" id="autor" name="autor" th:field="*{autor}">
+    <br><br>
+    <label for="anioPublicacion">Año de publicación: </label>
+    <input type="text" id="anioPublicacion" name="anioPublicacion" placeholder="Ej: 2023"  th:field="*{anioPublicacion}">
+    <br><br>
+    <label for="stock">STOCK: </label>
+    <input type="text" id="stock" name="stock" placeholder="Ej: 50"  th:field="*{stock}">
+    <br><br>
+    <button type="submit" name="Enviar" id="enviar">Enviar</button>
+</form>
+
 </body>
 </html>
