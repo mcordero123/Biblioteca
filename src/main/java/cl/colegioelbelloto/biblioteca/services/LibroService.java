@@ -8,35 +8,25 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-
-public class LibroServiceImpl implements ILibroService{
+public class LibroService {
 
     @Autowired
     LibroRepository libroRepository;
 
-    @Override
-    public Libro saveLibro(Libro libro) {
+    public  Libro saveLibro(Libro libro){
         libroRepository.save(libro);
         return libro;
     }
 
-    @Override
-    public List<Libro> AllLibros() {
+    public List<Libro> AllLibros(){
         return libroRepository.findAll();
     }
 
-    @Override
-    public Libro updateLibro(Long idLibro) {
-        return null;
-    }
-
-    @Override
-    public void deleteLibro(Long idLibro) {
+    public void deleteLibro(Long idLibro){
         libroRepository.deleteById(idLibro);
     }
 
     public Libro findByIdLibro(Long id){
-        libroRepository.findById(id).orElse(null);
-        return null;
+        return libroRepository.findById(id).orElse(null);
     }
 }
