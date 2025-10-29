@@ -29,4 +29,18 @@ public class LibroService {
     public Libro findByIdLibro(Long id){
         return libroRepository.findById(id).orElse(null);
     }
+
+    public Libro updateLibro(Long idLibro, Libro libroActualizado){
+        return libroRepository.findById(idLibro)
+                .map(libroExistente -> {
+                    libroExistente.setTitulo(libroActualizado.getTitulo());
+                    libroExistente.setAutor(libroActualizado.getAutor());
+                    libroExistente.setIsbn(libroActualizado.getIsbn());
+                    libroExistente.setAnioPublicacion(libroActualizado.getAnioPublicacion());
+                    libroExistente.setStock(libroActualizado.getStock());
+                    libroExistente.setTitulo(libroActualizado.getTitulo());
+                    return libroRepository.save(libroExistente);
+                })
+                .orElse(null);
+    }
 }
