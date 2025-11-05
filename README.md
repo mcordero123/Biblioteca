@@ -38,7 +38,7 @@ src/<br>
 → Git bash para clonar el repositorio<br>
 
 - Ejecución: <br>
-→ git clone https://github.com/mcordero123/Biblioteca.git <br>
+→ git clone https://github.com/mcordero123/Biblioteca <br>
 → Entrar a la carpeta del proyecto y ejecutar la clase principal BibliotecaApplication.java desde tu IDE. <br>
 → Una vez iniciada la clase principal, debes ingresar a tu navegador y acceder a http://localhost:8080/libros/nuevo<br>
 
